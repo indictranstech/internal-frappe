@@ -73,6 +73,7 @@ def post(txt, contact, parenttype=None, notify=False, subject=None):
 	import frappe
 	"""post message"""
 
+
 	d = frappe.new_doc('Comment')
 	d.parenttype = parenttype
 	d.comment = txt
@@ -84,6 +85,7 @@ def post(txt, contact, parenttype=None, notify=False, subject=None):
 
 	if notify and cint(notify):
 		if contact==frappe.session.user:
+			
 			_notify([user.name for user in get_enabled_system_users()], txt)
 		else:
 			_notify(contact, txt, subject)
@@ -98,6 +100,7 @@ def _notify(contact, txt, subject=None):
 	try:
 		if not isinstance(contact, list):
 			contact = [frappe.db.get_value("User", contact, "email") or contact]
+
 		frappe.sendmail(\
 			recipients=contact,
 			sender= frappe.db.get_value("User", frappe.session.user, "email"),

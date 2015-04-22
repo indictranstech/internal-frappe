@@ -53,9 +53,8 @@ def get_outgoing_email_account(raise_exception_not_set=True, append_to=None):
 
 		if not email_account:
 			email_account = get_default_outgoing_email_account(raise_exception_not_set=raise_exception_not_set)
-
-		if not email_account:
-			frappe.throw(_("Please setup default Email Account from Setup > Email > Email Account"))
+		#if not email_account:
+		#	frappe.throw(_("Please setup default Email Account from Setup > Email > Email Account"))
 
 		frappe.local.outgoing_email_account[append_to or "default"] = email_account
 

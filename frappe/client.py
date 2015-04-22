@@ -23,7 +23,7 @@ def get(doctype, name=None, filters=None):
 
 	doc = frappe.get_doc(doctype, name)
 	if not doc.has_permission("read"):
-		raise frappe.PermissionError
+	 	raise frappe.PermissionError
 
 	return frappe.get_doc(doctype, name).as_dict()
 

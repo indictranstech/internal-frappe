@@ -201,7 +201,6 @@ class EmailAccount(Document):
 		"""Send auto reply if set."""
 		if self.auto_reply_message:
 			communication.set_incoming_outgoing_accounts()
-
 			frappe.sendmail(recipients = [email.from_email],
 				sender = self.email_id,
 				reply_to = communication.incoming_email_account,

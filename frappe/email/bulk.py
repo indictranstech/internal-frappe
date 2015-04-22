@@ -64,6 +64,7 @@ def send(recipients=None, sender=None, subject=None, message=None, reference_doc
 
 	for email in filter(None, list(set(recipients))):
 		if email not in unsubscribed:
+
 			email_content = formatted
 			email_text_context = text_content
 

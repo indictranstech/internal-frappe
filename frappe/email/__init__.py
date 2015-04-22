@@ -21,7 +21,7 @@ def sendmail(recipients, sender='', msg='', subject='[No Subject]', attachments=
 		mail.set_message_id(message_id)
 
 	send(mail)
-
+	 
 def sendmail_to_system_managers(subject, content):
 	send(get_email(get_system_managers(), None, content, subject))
 
