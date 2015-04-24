@@ -125,9 +125,9 @@ class Database:
 					frappe.log("with values:")
 					frappe.log(values)
 					frappe.log(">>>>")
-
+					
 				self._cursor.execute(query, values)
-
+				
 			else:
 				if debug:
 					self.explain_query(query)
@@ -514,7 +514,7 @@ class Database:
 
 		r = self.sql("select {0} from `tab{1}` where {2} {3}".format(fl, doctype,
 			conditions, order_by), values, as_dict=as_dict, debug=debug, update=update)
-
+		
 		return r
 
 	def _get_value_for_many_names(self, doctype, names, field, debug=False):
